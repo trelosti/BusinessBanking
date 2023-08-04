@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "BusinessBanking.Interface/1.0.0": {
+        "dependencies": {
+          "BusinessBanking.Domain": "1.0.0"
+        },
+        "runtime": {
+          "BusinessBanking.Interface.dll": {}
+        }
+      },
+      "BusinessBanking.Domain/1.0.0": {
+        "runtime": {
+          "BusinessBanking.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BusinessBanking.Interface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BusinessBanking.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
