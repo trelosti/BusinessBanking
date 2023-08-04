@@ -10,5 +10,8 @@ namespace BusinessBanking.Interface.Services.Users
     public interface IUserService
     {
         Task<List<User>> GetUsers();
+
+        Task<User> GetUserByLogin(string login);
+
     }
 }

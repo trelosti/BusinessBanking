@@ -14,6 +14,11 @@ namespace BusinessBanking.Services.Users
             _userRepository = userRepository;
         }
 
+        public async Task<User> GetUserByLogin(string login)
+        {
+            return await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Login == login);
+        }
+
         public async Task<List<User>> GetUsers()
         {
             return await _userRepository.GetAll().ToListAsync();
