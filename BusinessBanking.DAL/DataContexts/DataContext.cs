@@ -16,6 +16,12 @@ namespace BusinessBanking.DAL.DataContexts
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasAlternateKey(u => u.Login);
+        }
+
         public DbSet<User> Users { get; set; }
     }
 }
