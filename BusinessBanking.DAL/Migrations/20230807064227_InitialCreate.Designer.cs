@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessBanking.DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230806132705_AddUniqueConstraint")]
-    partial class AddUniqueConstraint
+    [Migration("20230807064227_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,16 @@ namespace BusinessBanking.DAL.Migrations
                     b.HasAlternateKey("Login");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            CustomerID = 1,
+                            Login = "user",
+                            Password = "ee11cbb19052e40b07aac0ca060c23ee",
+                            UserAccess = 1
+                        });
                 });
 #pragma warning restore 612, 618
         }

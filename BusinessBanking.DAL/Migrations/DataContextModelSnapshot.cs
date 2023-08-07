@@ -58,6 +58,16 @@ namespace BusinessBanking.DAL.Migrations
                     b.HasAlternateKey("Login");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            CustomerID = 1,
+                            Login = "user",
+                            Password = "ee11cbb19052e40b07aac0ca060c23ee",
+                            UserAccess = 1
+                        });
                 });
 #pragma warning restore 612, 618
         }
