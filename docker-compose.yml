@@ -1,0 +1,28 @@
+version: '3.4'
+
+networks:
+  bankingnetwork:  
+
+services:
+  bankingdb:
+    container_name: banking_db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+        - 8003:1433
+    environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=abBakai123#
+    networks:
+        - bankingnetwork
+  businessbanking:
+    container_name: banking
+    ports:
+        - 8002:80
+    image: ${DOCKER_REGISTRY-}businessbanking
+    build:
+      context: .
+      dockerfile: BusinessBanking/Dockerfile
+    depends_on:
+        - bankingdb
+    networks:
+        - bankingnetwork

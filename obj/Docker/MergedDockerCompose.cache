@@ -1,0 +1,16 @@
+services:
+  businessbanking:
+    build:
+      context: D:\C#\BusinessBanking
+      dockerfile: BusinessBanking/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: businessbanking
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\Ten\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Ten\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessBanking", "BusinessBanking\BusinessBanking.csproj", "{CAE3F5CA-9FEB-4801-97BC-13D63FEE17CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessBanking", "BusinessBanking\BusinessBanking.csproj", "{CAE3F5CA-9FEB-4801-97BC-13D63FEE17CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessBanking.Domain", "BusinessBanking.Domain\BusinessBanking.Domain.csproj", "{80A603DC-E636-48D3-9885-76DD70281465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessBanking.Domain", "BusinessBanking.Domain\BusinessBanking.Domain.csproj", "{80A603DC-E636-48D3-9885-76DD70281465}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessBanking.DAL", "BusinessBanking.DAL\BusinessBanking.DAL.csproj", "{6550B127-432A-48FA-8CAB-8610F3FEC89A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessBanking.DAL", "BusinessBanking.DAL\BusinessBanking.DAL.csproj", "{6550B127-432A-48FA-8CAB-8610F3FEC89A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessBanking.Repository", "BusinessBanking.Repository\BusinessBanking.Repository.csproj", "{48D0164D-9DDC-4DF1-8C57-522C2816711B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessBanking.Repository", "BusinessBanking.Repository\BusinessBanking.Repository.csproj", "{48D0164D-9DDC-4DF1-8C57-522C2816711B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessBanking.Interface", "BusinessBanking.Interface\BusinessBanking.Interface.csproj", "{73E884C8-E6C8-4A6A-AA9E-33F284AA48BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessBanking.Interface", "BusinessBanking.Interface\BusinessBanking.Interface.csproj", "{73E884C8-E6C8-4A6A-AA9E-33F284AA48BA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FD127A72-F766-44ED-9A17-21225B1CD6FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{73E884C8-E6C8-4A6A-AA9E-33F284AA48BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73E884C8-E6C8-4A6A-AA9E-33F284AA48BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73E884C8-E6C8-4A6A-AA9E-33F284AA48BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD127A72-F766-44ED-9A17-21225B1CD6FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD127A72-F766-44ED-9A17-21225B1CD6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD127A72-F766-44ED-9A17-21225B1CD6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD127A72-F766-44ED-9A17-21225B1CD6FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
