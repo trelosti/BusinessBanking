@@ -1,4 +1,5 @@
-﻿using BusinessBanking.Domain.Entity;
+﻿using BusinessBanking.DAL.Util;
+using BusinessBanking.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,27 @@ namespace BusinessBanking.DAL.DataContexts
                     UserAccess = 1
                 },
             });
+
+            //--
+
+            var currencyList = CsvReader.ReadCurrencies();
+            List<Currency> currencies = new List<Currency>();
+            var currencyIdCounter = 1;
+
+            foreach (var currency in currencyList) 
+            {
+                currencies.Add(new Currency
+                {
+                    ID = currencyIdCounter++,
+                    CurrencyID = currency[0],
+                    CurrencySymbol = currency[1],
+                    CurrencyName = currency[2]
+                });
+            }
+
+            modelBuilder.Entity<Currency>().HasData(currencies);
+
+            //--
 
             modelBuilder.Entity<CustomerAccount>()
                 .HasOne(c => c.User)

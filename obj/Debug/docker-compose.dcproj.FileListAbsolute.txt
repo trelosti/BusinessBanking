@@ -31,3 +31,5 @@ D:\C#\BusinessBanking\bin\Debug\BusinessBanking.Repository.pdb
 D:\C#\BusinessBanking\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 D:\C#\BusinessBanking\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 D:\C#\BusinessBanking\obj\Debug\docker-compose.dcproj.CopyComplete
+D:\C#\BusinessBanking\bin\Debug\File\currencies.csv
+D:\C#\BusinessBanking\bin\Debug\CsvHelper.dll

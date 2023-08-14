@@ -83,3 +83,5 @@ D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Microsoft.Extensions.Depe
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Mono.TextTemplating.dll
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\System.CodeDom.dll
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\File\currencies.csv
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\CsvHelper.dll

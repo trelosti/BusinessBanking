@@ -28,4 +28,10 @@
     <ProjectReference Include="..\BusinessBanking.Repository\BusinessBanking.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="File\currencies.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
