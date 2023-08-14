@@ -1,8 +1,10 @@
 ﻿using BusinessBanking.DAL.Util;
 using BusinessBanking.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -34,13 +36,11 @@ namespace BusinessBanking.DAL.DataContexts
                 },
             });
 
-            //--
-
             var currencyList = CsvReader.ReadCurrencies();
             List<Currency> currencies = new List<Currency>();
             var currencyIdCounter = 1;
 
-            foreach (var currency in currencyList) 
+            foreach (var currency in currencyList)
             {
                 currencies.Add(new Currency
                 {
@@ -52,8 +52,6 @@ namespace BusinessBanking.DAL.DataContexts
             }
 
             modelBuilder.Entity<Currency>().HasData(currencies);
-
-            //--
 
             modelBuilder.Entity<CustomerAccount>()
                 .HasOne(c => c.User)
@@ -67,6 +65,48 @@ namespace BusinessBanking.DAL.DataContexts
                 .WithMany(cr => cr.CustomerAccounts)
                 .HasForeignKey(c => c.CurrencyID)
                 .HasPrincipalKey(cr => cr.CurrencyID);
+
+            modelBuilder.Entity<CustomerAccount>().HasData(new CustomerAccount[] {
+                new CustomerAccount
+                {
+                    ID = 1,
+                    CustomerID = 1,
+                    AccountType = 0,
+                    AccountNo = "1240020000000001",
+                    CurrencyID = "840",
+                    AccountName = "Банковские счета юридических лиц",
+                    AvailableBalance = 137.53M,
+                    OpenDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddYears(1),
+                    CloseDate = null
+                },
+                new CustomerAccount
+                {
+                    ID = 2,
+                    CustomerID = 1,
+                    AccountType = 0,
+                    AccountNo = "1240020000000002",
+                    CurrencyID = "417",
+                    AccountName = "Банковские счета ИП ",
+                    AvailableBalance = 49315.07M,
+                    OpenDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddYears(1),
+                    CloseDate = null
+                },
+                new CustomerAccount
+                {
+                    ID = 3,
+                    CustomerID = 1,
+                    AccountType = 1,
+                    AccountNo = "1243010000000001",
+                    CurrencyID = "417",
+                    AccountName = "Классический 365/факт",
+                    AvailableBalance = 1000000M,
+                    OpenDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddYears(1),
+                    CloseDate = null
+                },
+             });
         }
 
         public DbSet<User> Users { get; set; }
