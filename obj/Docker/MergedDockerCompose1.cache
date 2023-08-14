@@ -1,0 +1,36 @@
+networks:
+  bankingnetwork: {}
+services:
+  bankingdb:
+    container_name: banking_db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: abBakai123#
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      bankingnetwork: {}
+    ports:
+    - published: 8003
+      target: 1433
+  businessbanking:
+    build:
+      context: D:\C#\BusinessBanking
+      dockerfile: BusinessBanking/Dockerfile
+    container_name: banking
+    depends_on:
+      bankingdb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:80
+    image: businessbanking
+    networks:
+      bankingnetwork: {}
+    ports:
+    - published: 8002
+      target: 80
+    - target: 80
+    volumes:
+    - C:\Users\Ten\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Ten\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

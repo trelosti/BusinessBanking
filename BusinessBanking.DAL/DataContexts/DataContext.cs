@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -31,8 +32,25 @@ namespace BusinessBanking.DAL.DataContexts
                     UserAccess = 1
                 },
             });
+
+            modelBuilder.Entity<CustomerAccount>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.CustomerAccounts)
+                .HasForeignKey(c => c.CustomerID)
+                .HasPrincipalKey(u => u.CustomerID);
+
+
+            modelBuilder.Entity<CustomerAccount>()
+                .HasOne(c => c.Currency)
+                .WithMany(cr => cr.CustomerAccounts)
+                .HasForeignKey(c => c.CurrencyID)
+                .HasPrincipalKey(cr => cr.CurrencyID);
         }
 
         public DbSet<User> Users { get; set; }
+
+        public virtual DbSet<CustomerAccount> CustomerAccounts { get; set; }
+
+        public virtual DbSet<Currency> Currencies { get; set; } 
     }
 }

@@ -2,6 +2,7 @@
 using BusinessBanking.Interface.Services.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BusinessBanking.Controllers
 {
@@ -26,7 +27,25 @@ namespace BusinessBanking.Controllers
         [HttpGet("Test")]
         public object Test()
         {
-            return "Success";
+            var identity = User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                //var customerId = claims.Where(p => p.Type == "customerID").FirstOrDefault()?.Value;
+                if (int.TryParse(claims.Where(p => p.Type == "customerID").FirstOrDefault()?.Value, out int customerId))
+                {
+                    return new
+                    {
+                        data = customerId
+                    };
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            return null;
         }
     }
 }
