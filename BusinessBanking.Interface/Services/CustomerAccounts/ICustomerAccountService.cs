@@ -1,4 +1,5 @@
-﻿using BusinessBanking.Domain.Entity;
+﻿using BusinessBanking.Domain.DTO;
+using BusinessBanking.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace BusinessBanking.Interface.Services.CustomerAccounts
     {
         Task<List<CustomerAccount>> GetAllAccounts();
 
-        Task<List<CustomerAccount>> GetCustomerAccounts(int customerId);
+        Task<List<AccountListDto<BaseAccountDto>>> GetCustomerAccounts(int customerId);
     }
 }

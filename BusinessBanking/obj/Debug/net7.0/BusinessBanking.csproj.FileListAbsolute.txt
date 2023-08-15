@@ -87,3 +87,4 @@ D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\File\currencies.csv
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\CsvHelper.dll
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Castle.Core.dll
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Newtonsoft.Json.dll

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tfDZJaQIDt3n7gee2jmruwKAftN5fyL3V1c4JwE1gSyjFYW4zWSrOeQwOunmuN8cxfuLh95qa0wFSlE0t6C4LQ==",
+  "dgSpecHash": "itakAIsILRLGRuwvYo2F5pvPt02uul/eUGJyewfbC8qk5LkIRw5uF/tJzkDnJt/BrC3c66PimIcDMLUyLYnHCw==",
   "success": true,
   "projectFilePath": "D:\\C#\\BusinessBanking\\BusinessBanking\\BusinessBanking.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,7 @@
     "C:\\Users\\Ten\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Ten\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Ten\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Ten\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Ten\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\Ten\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Ten\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
