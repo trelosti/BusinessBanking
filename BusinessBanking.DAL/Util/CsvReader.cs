@@ -27,7 +27,6 @@ namespace BusinessBanking.DAL.Util
                             csv.Context.Parser.Record[1],
                             csv.Context.Parser.Record[2].Trim(),
                         });
-                        Console.OutputEncoding = Encoding.UTF8;
                     }
                 }
             }

@@ -20,6 +20,11 @@ namespace BusinessBanking.DAL.DataContexts
 
         }
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseLazyLoadingProxies();
+        //}
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()

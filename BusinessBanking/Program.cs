@@ -2,9 +2,12 @@ using BusinessBanking.DAL.DataContexts;
 using BusinessBanking.Domain.Entity;
 using BusinessBanking.Interface.Repositories;
 using BusinessBanking.Interface.Services.Auth;
+using BusinessBanking.Interface.Services.CustomerAccounts;
 using BusinessBanking.Interface.Services.Users;
+using BusinessBanking.Repository.CustomerAccounts;
 using BusinessBanking.Repository.Users;
 using BusinessBanking.Services.Auth;
+using BusinessBanking.Services.CustomerAccounts;
 using BusinessBanking.Services.Users;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -26,8 +29,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
+builder.Services.AddScoped<IBaseRepository<CustomerAccount>, CustomerAccountRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ICustomerAccountService, CustomerAccountService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => options.TokenValidationParameters = new TokenValidationParameters

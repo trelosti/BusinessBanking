@@ -12,6 +12,5 @@ namespace BusinessBanking.Interface.Services.Users
         Task<List<User>> GetUsers();
 
         Task<User> GetUserByLogin(string login);
-
     }
 }
