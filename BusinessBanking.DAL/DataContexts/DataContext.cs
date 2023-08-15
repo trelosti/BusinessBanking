@@ -39,6 +39,14 @@ namespace BusinessBanking.DAL.DataContexts
                     Password = "ee11cbb19052e40b07aac0ca060c23ee",
                     UserAccess = 1
                 },
+                new User
+                {
+                    ID = 2,
+                    CustomerID = 2,
+                    Login = "test",
+                    Password = "098f6bcd4621d373cade4e832627b4f6",
+                    UserAccess = 1
+                }
             });
 
             var currencyList = CsvReader.ReadCurrencies();
@@ -107,6 +115,32 @@ namespace BusinessBanking.DAL.DataContexts
                     CurrencyID = "417",
                     AccountName = "Классический 365/факт",
                     AvailableBalance = 1000000M,
+                    OpenDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddYears(1),
+                    CloseDate = null
+                },
+                new CustomerAccount
+                {
+                    ID = 4,
+                    CustomerID = 2,
+                    AccountType = 0,
+                    AccountNo = "1240020000000003",
+                    CurrencyID = "643",
+                    AccountName = "Банковские счета физ. лиц ",
+                    AvailableBalance = 1502.75M,
+                    OpenDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddYears(1),
+                    CloseDate = null
+                },
+                new CustomerAccount
+                {
+                    ID = 5,
+                    CustomerID = 2,
+                    AccountType = 1,
+                    AccountNo = "1243010000000002",
+                    CurrencyID = "643",
+                    AccountName = "Классический 365/факт",
+                    AvailableBalance = 5000000M,
                     OpenDate = DateTime.Now,
                     EndDate = DateTime.Now.AddYears(1),
                     CloseDate = null
