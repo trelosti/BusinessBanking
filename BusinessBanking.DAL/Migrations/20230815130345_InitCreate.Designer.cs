@@ -12,14 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessBanking.DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230815065240_AddTestRecords")]
-    partial class AddTestRecords
+    [Migration("20230815130345_InitCreate")]
+    partial class InitCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .UseCollation("Cyrillic_General_CI_AS")
                 .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
@@ -304,8 +305,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 137.53m,
                             CurrencyID = "840",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(4991),
-                            OpenDate = new DateTime(2023, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(4973)
+                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7975),
+                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7960)
                         },
                         new
                         {
@@ -316,8 +317,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 49315.07m,
                             CurrencyID = "417",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(5004),
-                            OpenDate = new DateTime(2023, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(5002)
+                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7988),
+                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7987)
                         },
                         new
                         {
@@ -328,8 +329,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 1000000m,
                             CurrencyID = "417",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(5010),
-                            OpenDate = new DateTime(2023, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(5009)
+                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7993),
+                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7992)
                         },
                         new
                         {
@@ -340,8 +341,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 1502.75m,
                             CurrencyID = "643",
                             CustomerID = 2,
-                            EndDate = new DateTime(2024, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(5015),
-                            OpenDate = new DateTime(2023, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(5014)
+                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7998),
+                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7997)
                         },
                         new
                         {
@@ -352,8 +353,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 5000000m,
                             CurrencyID = "643",
                             CustomerID = 2,
-                            EndDate = new DateTime(2024, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(5020),
-                            OpenDate = new DateTime(2023, 8, 15, 12, 52, 40, 618, DateTimeKind.Local).AddTicks(5019)
+                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(8003),
+                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(8002)
                         });
                 });
 

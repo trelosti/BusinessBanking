@@ -10,7 +10,7 @@ namespace BusinessBanking.DAL.Util
 {
     public class CsvReader
     {
-        private static readonly string _pathToCurrencies = $"{Directory.GetCurrentDirectory()}{@"\File\currencies.csv"}";
+        private static readonly string _pathToCurrencies = $"{Directory.GetCurrentDirectory()}{@"/File/currencies.csv"}";
 
         public static List<string[]> ReadCurrencies()
         {

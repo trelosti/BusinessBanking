@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,12 +17,14 @@ namespace BusinessBanking.DAL.DataContexts
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) 
-        { 
+        {
 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.UseCollation("Cyrillic_General_CI_AS");
+
             modelBuilder.Entity<User>()
                 .HasAlternateKey(u => u.Login);
 

@@ -33,3 +33,5 @@ D:\C#\BusinessBanking\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 D:\C#\BusinessBanking\obj\Debug\docker-compose.dcproj.CopyComplete
 D:\C#\BusinessBanking\bin\Debug\File\currencies.csv
 D:\C#\BusinessBanking\bin\Debug\CsvHelper.dll
+D:\C#\BusinessBanking\bin\Debug\Microsoft.OpenApi.dll
+D:\C#\BusinessBanking\bin\Debug\Newtonsoft.Json.dll
