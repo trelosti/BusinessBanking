@@ -18,12 +18,6 @@ namespace BusinessBanking.Controllers
             _customerAccountService = customerAccountService;
         }
 
-        [HttpGet("GetAll")]
-        public async Task<ActionResult<List<CustomerAccount>>> GetAll()
-        {
-            return Ok(await _customerAccountService.GetAllAccounts());
-        }
-
         [Authorize]
         [HttpGet("GetCustomerAccounts")]
         public async Task<ActionResult<List<CustomerAccount>>> GetCustomerAccounts()

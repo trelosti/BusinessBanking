@@ -3,6 +3,8 @@ using BusinessBanking.Domain.Entity;
 using BusinessBanking.Interface.Converters;
 using BusinessBanking.Interface.Services.CustomerAccounts;
 using BusinessBanking.Services.CustomerAccounts;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace BusinessBanking.Converters
 {
@@ -41,7 +43,7 @@ namespace BusinessBanking.Converters
 
                 result.Add(new AccountListDto<BaseAccountDto> 
                 { 
-                    Text = Domain.Enum.AccountType.SettlementAccount.ToString(),
+                    Text = GetDisplayName(Domain.Enum.AccountType.SettlementAccount),
                     AccountType = Domain.Enum.AccountType.SettlementAccount,
                     Items = items
                 });
@@ -67,13 +69,22 @@ namespace BusinessBanking.Converters
 
                 result.Add(new AccountListDto<BaseAccountDto>
                 {
-                    Text = Domain.Enum.AccountType.DepositAccount.ToString(),
+                    Text = GetDisplayName(Domain.Enum.AccountType.DepositAccount),
                     AccountType = Domain.Enum.AccountType.DepositAccount,
                     Items = items
                 });
             }
 
             return result;
+        }
+
+        private static string GetDisplayName(Enum enumValue)
+        {
+            return enumValue.GetType()
+              .GetMember(enumValue.ToString())
+              .First()
+              .GetCustomAttribute<DisplayAttribute>()
+              ?.GetName();
         }
     }
 }
