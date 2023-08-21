@@ -1,7 +1,9 @@
 ﻿using BusinessBanking.DAL.Util;
 using BusinessBanking.Domain.Entity;
+using Castle.Core.Resource;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,6 +21,11 @@ namespace BusinessBanking.DAL.DataContexts
         public DataContext(DbContextOptions<DataContext> options) : base(options) 
         {
 
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -144,6 +151,58 @@ namespace BusinessBanking.DAL.DataContexts
                     CloseDate = null
                 },
              });
+
+            modelBuilder.Entity<CustomerAccountName>(b =>
+            {
+                b.HasIndex(e => new { e.AccountNo, e.CurrencyID }).IsUnique();
+            });
+
+            modelBuilder.Entity<CustomerAccountName>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.CustomerAccountNames)
+                .HasForeignKey(c => c.CustomerID)
+                .HasPrincipalKey(u => u.CustomerID);
+
+            modelBuilder.Entity<CustomerAccountName>()
+                .HasOne(c => c.Currency)
+                .WithMany(cur => cur.CustomerAccountNames)
+                .HasForeignKey(c => c.CurrencyID)
+                .HasPrincipalKey(cur => cur.CurrencyID);
+
+            modelBuilder.Entity<CustomerAccountName>()
+                .HasOne(c => c.CustomerAccount)
+                .WithOne(ca => ca.CustomerAccountName)
+                .HasForeignKey<CustomerAccountName>(c => c.AccountNo)
+                .HasPrincipalKey<CustomerAccount>(ca => ca.AccountNo)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CustomerAccountName>().HasData(new CustomerAccountName[]
+            {
+                new CustomerAccountName
+                {
+                ID = 1,
+                CustomerID = 1,
+                AccountNo = "1240020000000001",
+                CurrencyID = "840",
+                AccountName = "Банковские счета юр. лиц",
+                },
+                new CustomerAccountName
+                {
+                ID = 2,
+                CustomerID = 1,
+                AccountNo = "1240020000000002",
+                CurrencyID = "417",
+                AccountName = "Счета ИП",
+                },
+                new CustomerAccountName
+                {
+                ID = 3,
+                CustomerID = 2,
+                AccountNo = "1243010000000002",
+                CurrencyID = "643",
+                AccountName = "Классический 365",
+                },
+            });
         }
 
         public DbSet<User> Users { get; set; }
@@ -151,5 +210,7 @@ namespace BusinessBanking.DAL.DataContexts
         public virtual DbSet<CustomerAccount> CustomerAccounts { get; set; }
 
         public virtual DbSet<Currency> Currencies { get; set; } 
+
+        public virtual DbSet<CustomerAccountName> CustomerAccountNames { get; set; }
     }
 }

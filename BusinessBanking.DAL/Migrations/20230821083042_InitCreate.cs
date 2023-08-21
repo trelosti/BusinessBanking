@@ -66,6 +66,7 @@ namespace BusinessBanking.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CustomerAccounts", x => x.ID);
+                    table.UniqueConstraint("AK_CustomerAccounts_AccountNo", x => x.AccountNo);
                     table.ForeignKey(
                         name: "FK_CustomerAccounts_Currencies_CurrencyID",
                         column: x => x.CurrencyID,
@@ -74,6 +75,40 @@ namespace BusinessBanking.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CustomerAccounts_Users_CustomerID",
+                        column: x => x.CustomerID,
+                        principalTable: "Users",
+                        principalColumn: "CustomerID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AccountNames",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CustomerID = table.Column<int>(type: "int", nullable: false),
+                    AccountNo = table.Column<string>(type: "char(16)", nullable: false),
+                    CurrencyID = table.Column<string>(type: "char(3)", nullable: false),
+                    AccountName = table.Column<string>(type: "varchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AccountNames", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_AccountNames_Currencies_CurrencyID",
+                        column: x => x.CurrencyID,
+                        principalTable: "Currencies",
+                        principalColumn: "CurrencyID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AccountNames_CustomerAccounts_AccountNo",
+                        column: x => x.AccountNo,
+                        principalTable: "CustomerAccounts",
+                        principalColumn: "AccountNo",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AccountNames_Users_CustomerID",
                         column: x => x.CustomerID,
                         principalTable: "Users",
                         principalColumn: "CustomerID",
@@ -125,12 +160,34 @@ namespace BusinessBanking.DAL.Migrations
                 columns: new[] { "ID", "AccountName", "AccountNo", "AccountType", "AvailableBalance", "CloseDate", "CurrencyID", "CustomerID", "EndDate", "OpenDate" },
                 values: new object[,]
                 {
-                    { 1, "Банковские счета юридических лиц", "1240020000000001", (byte)0, 137.53m, null, "840", 1, new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7975), new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7960) },
-                    { 2, "Банковские счета ИП ", "1240020000000002", (byte)0, 49315.07m, null, "417", 1, new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7988), new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7987) },
-                    { 3, "Классический 365/факт", "1243010000000001", (byte)1, 1000000m, null, "417", 1, new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7993), new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7992) },
-                    { 4, "Банковские счета физ. лиц ", "1240020000000003", (byte)0, 1502.75m, null, "643", 2, new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7998), new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7997) },
-                    { 5, "Классический 365/факт", "1243010000000002", (byte)1, 5000000m, null, "643", 2, new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(8003), new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(8002) }
+                    { 1, "Банковские счета юридических лиц", "1240020000000001", (byte)0, 137.53m, null, "840", 1, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6120), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6106) },
+                    { 2, "Банковские счета ИП ", "1240020000000002", (byte)0, 49315.07m, null, "417", 1, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6133), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6132) },
+                    { 3, "Классический 365/факт", "1243010000000001", (byte)1, 1000000m, null, "417", 1, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6136), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6136) },
+                    { 4, "Банковские счета физ. лиц ", "1240020000000003", (byte)0, 1502.75m, null, "643", 2, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6140), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6139) },
+                    { 5, "Классический 365/факт", "1243010000000002", (byte)1, 5000000m, null, "643", 2, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6143), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6142) }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AccountNames_AccountNo",
+                table: "AccountNames",
+                column: "AccountNo",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AccountNames_AccountNo_CurrencyID",
+                table: "AccountNames",
+                columns: new[] { "AccountNo", "CurrencyID" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AccountNames_CurrencyID",
+                table: "AccountNames",
+                column: "CurrencyID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AccountNames_CustomerID",
+                table: "AccountNames",
+                column: "CustomerID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CustomerAccounts_CurrencyID",
@@ -146,6 +203,9 @@ namespace BusinessBanking.DAL.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AccountNames");
+
             migrationBuilder.DropTable(
                 name: "CustomerAccounts");
 

@@ -22,5 +22,11 @@ namespace BusinessBanking.Repository.CustomerAccounts
         {
             return _db.Currencies;
         }
+
+        // TODO: Implement in future (maybe)
+        public Task<Currency> Update(Currency entity)
+        {
+            return null;
+        }
     }
 }

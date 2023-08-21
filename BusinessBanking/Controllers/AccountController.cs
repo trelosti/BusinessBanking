@@ -1,7 +1,7 @@
-﻿using BusinessBanking.Domain.Entity;
+﻿using BusinessBanking.Domain.DTO;
+using BusinessBanking.Domain.Entity;
 using BusinessBanking.Interface.Services.CustomerAccounts;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -12,10 +12,12 @@ namespace BusinessBanking.Controllers
     public class AccountController : ControllerBase
     {
         private readonly ICustomerAccountService _customerAccountService;
+        private readonly ICustomerAccountNameService _customerAccountNameService;
 
-        public AccountController(ICustomerAccountService customerAccountService)
+        public AccountController(ICustomerAccountService customerAccountService, ICustomerAccountNameService customerAccountNameService)
         {
             _customerAccountService = customerAccountService;
+            _customerAccountNameService = customerAccountNameService;
         }
 
         [Authorize]
@@ -38,6 +40,13 @@ namespace BusinessBanking.Controllers
             }
 
             return NotFound("CustomerNotFound");
+        }
+
+        [Authorize]
+        [HttpPost("CustomerAccountRename")]
+        public async Task<CustomerAccountNameDto> CustomerAccountRename(CustomerAccountNameDto customerAccountNameDto)
+        {
+            return await _customerAccountNameService.CustomerAccountRename(customerAccountNameDto);
         }
     }
 }

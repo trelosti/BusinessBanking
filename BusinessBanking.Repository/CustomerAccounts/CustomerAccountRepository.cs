@@ -22,5 +22,11 @@ namespace BusinessBanking.Repository.CustomerAccounts
         {
             return _db.CustomerAccounts;
         }
+
+        // TODO: Implement in future (maybe)
+        public Task<CustomerAccount> Update(CustomerAccount entity)
+        {
+            return null;
+        }
     }
 }

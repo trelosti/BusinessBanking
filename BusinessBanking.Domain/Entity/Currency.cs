@@ -24,5 +24,7 @@ namespace BusinessBanking.Domain.Entity
         public string CurrencyName { get; set; }
 
         public virtual ICollection<CustomerAccount> CustomerAccounts { get; set; }
+
+        public virtual ICollection<CustomerAccountName> CustomerAccountNames { get; set; }
     }
 }

@@ -27,5 +27,7 @@ namespace BusinessBanking.Domain.Entity
         public int UserAccess { get; set; }
 
         public virtual ICollection<CustomerAccount> CustomerAccounts { get; set;}
+
+        public virtual ICollection<CustomerAccountName> CustomerAccountNames { get; set; }
     }
 }

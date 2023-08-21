@@ -22,5 +22,11 @@ namespace BusinessBanking.Repository.Users
         {
             return _db.Users;
         }
+
+        // TODO: implement in future (maybe)
+        public Task<User> Update(User entity)
+        {
+            return null;
+        }
     }
 }

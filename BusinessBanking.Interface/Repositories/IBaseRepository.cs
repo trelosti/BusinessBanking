@@ -10,5 +10,7 @@ namespace BusinessBanking.Interface.Repositories
     public interface IBaseRepository<T>
     {
         IQueryable<T> GetAll();
+
+        Task<T> Update(T entity);
     }
 }

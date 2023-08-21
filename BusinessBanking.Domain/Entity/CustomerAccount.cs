@@ -44,5 +44,7 @@ namespace BusinessBanking.Domain.Entity
         public virtual User User { get; set; }
 
         public virtual Currency Currency { get; set; }
+
+        public virtual CustomerAccountName? CustomerAccountName { get; set; }
     }
 }

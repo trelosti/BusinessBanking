@@ -34,11 +34,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<IBaseRepository<CustomerAccount>, CustomerAccountRepository>();
 builder.Services.AddScoped<IBaseRepository<Currency>, CurrencyRepository>();
+builder.Services.AddScoped<IBaseRepository<CustomerAccountName>, CustomerAccountNameRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICurrencyService, CurrencyService>();
 builder.Services.AddScoped<IAccountConverter, AccountConverter>();
 builder.Services.AddScoped<ICustomerAccountService, CustomerAccountService>();
+builder.Services.AddScoped<ICustomerAccountNameService, CustomerAccountNameService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => options.TokenValidationParameters = new TokenValidationParameters

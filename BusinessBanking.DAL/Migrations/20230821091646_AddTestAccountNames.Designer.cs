@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessBanking.DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230815130345_InitCreate")]
-    partial class InitCreate
+    [Migration("20230821091646_AddTestAccountNames")]
+    partial class AddTestAccountNames
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,6 +22,9 @@ namespace BusinessBanking.DAL.Migrations
             modelBuilder
                 .UseCollation("Cyrillic_General_CI_AS")
                 .HasAnnotation("ProductVersion", "7.0.9")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -305,8 +308,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 137.53m,
                             CurrencyID = "840",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7975),
-                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7960)
+                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6099),
+                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6085)
                         },
                         new
                         {
@@ -317,8 +320,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 49315.07m,
                             CurrencyID = "417",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7988),
-                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7987)
+                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6109),
+                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6109)
                         },
                         new
                         {
@@ -329,8 +332,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 1000000m,
                             CurrencyID = "417",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7993),
-                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7992)
+                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6114),
+                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6113)
                         },
                         new
                         {
@@ -341,8 +344,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 1502.75m,
                             CurrencyID = "643",
                             CustomerID = 2,
-                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7998),
-                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(7997)
+                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6117),
+                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6116)
                         },
                         new
                         {
@@ -353,8 +356,82 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 5000000m,
                             CurrencyID = "643",
                             CustomerID = 2,
-                            EndDate = new DateTime(2024, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(8003),
-                            OpenDate = new DateTime(2023, 8, 15, 19, 3, 45, 588, DateTimeKind.Local).AddTicks(8002)
+                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6120),
+                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6120)
+                        });
+                });
+
+            modelBuilder.Entity("BusinessBanking.Domain.Entity.CustomerAccountName", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID")
+                        .HasColumnOrder(1);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("AccountName")
+                        .IsRequired()
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("AccountName")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("AccountNo")
+                        .IsRequired()
+                        .HasColumnType("char(16)")
+                        .HasColumnName("AccountNo")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("CurrencyID")
+                        .IsRequired()
+                        .HasColumnType("char(3)")
+                        .HasColumnName("CurrencyID")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int")
+                        .HasColumnName("CustomerID")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AccountNo")
+                        .IsUnique();
+
+                    b.HasIndex("CurrencyID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.HasIndex("AccountNo", "CurrencyID")
+                        .IsUnique();
+
+                    b.ToTable("AccountNames");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            AccountName = "Банковские счета юр. лиц",
+                            AccountNo = "1240020000000001",
+                            CurrencyID = "840",
+                            CustomerID = 1
+                        },
+                        new
+                        {
+                            ID = 2,
+                            AccountName = "Счета ИП",
+                            AccountNo = "1240020000000002",
+                            CurrencyID = "417",
+                            CustomerID = 1
+                        },
+                        new
+                        {
+                            ID = 3,
+                            AccountName = "Классический 365",
+                            AccountNo = "1243010000000002",
+                            CurrencyID = "643",
+                            CustomerID = 2
                         });
                 });
 
@@ -436,13 +513,52 @@ namespace BusinessBanking.DAL.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("BusinessBanking.Domain.Entity.CustomerAccountName", b =>
+                {
+                    b.HasOne("BusinessBanking.Domain.Entity.CustomerAccount", "CustomerAccount")
+                        .WithOne("CustomerAccountName")
+                        .HasForeignKey("BusinessBanking.Domain.Entity.CustomerAccountName", "AccountNo")
+                        .HasPrincipalKey("BusinessBanking.Domain.Entity.CustomerAccount", "AccountNo")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("BusinessBanking.Domain.Entity.Currency", "Currency")
+                        .WithMany("CustomerAccountNames")
+                        .HasForeignKey("CurrencyID")
+                        .HasPrincipalKey("CurrencyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BusinessBanking.Domain.Entity.User", "User")
+                        .WithMany("CustomerAccountNames")
+                        .HasForeignKey("CustomerID")
+                        .HasPrincipalKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Currency");
+
+                    b.Navigation("CustomerAccount");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BusinessBanking.Domain.Entity.Currency", b =>
                 {
+                    b.Navigation("CustomerAccountNames");
+
                     b.Navigation("CustomerAccounts");
+                });
+
+            modelBuilder.Entity("BusinessBanking.Domain.Entity.CustomerAccount", b =>
+                {
+                    b.Navigation("CustomerAccountName");
                 });
 
             modelBuilder.Entity("BusinessBanking.Domain.Entity.User", b =>
                 {
+                    b.Navigation("CustomerAccountNames");
+
                     b.Navigation("CustomerAccounts");
                 });
 #pragma warning restore 612, 618
