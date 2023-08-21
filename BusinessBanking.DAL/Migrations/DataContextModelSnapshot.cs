@@ -305,8 +305,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 137.53m,
                             CurrencyID = "840",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6099),
-                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6085)
+                            EndDate = new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9890),
+                            OpenDate = new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9876)
                         },
                         new
                         {
@@ -317,8 +317,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 49315.07m,
                             CurrencyID = "417",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6109),
-                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6109)
+                            EndDate = new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9902),
+                            OpenDate = new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9901)
                         },
                         new
                         {
@@ -329,8 +329,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 1000000m,
                             CurrencyID = "417",
                             CustomerID = 1,
-                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6114),
-                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6113)
+                            EndDate = new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9907),
+                            OpenDate = new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9906)
                         },
                         new
                         {
@@ -341,8 +341,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 1502.75m,
                             CurrencyID = "643",
                             CustomerID = 2,
-                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6117),
-                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6116)
+                            EndDate = new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9912),
+                            OpenDate = new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9911)
                         },
                         new
                         {
@@ -353,8 +353,8 @@ namespace BusinessBanking.DAL.Migrations
                             AvailableBalance = 5000000m,
                             CurrencyID = "643",
                             CustomerID = 2,
-                            EndDate = new DateTime(2024, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6120),
-                            OpenDate = new DateTime(2023, 8, 21, 15, 16, 45, 978, DateTimeKind.Local).AddTicks(6120)
+                            EndDate = new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9917),
+                            OpenDate = new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9916)
                         });
                 });
 
@@ -430,6 +430,48 @@ namespace BusinessBanking.DAL.Migrations
                             CurrencyID = "643",
                             CustomerID = 2
                         });
+                });
+
+            modelBuilder.Entity("BusinessBanking.Domain.Entity.Notification", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID")
+                        .HasColumnOrder(1);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("CreateDate")
+                        .HasColumnOrder(4);
+
+                    b.Property<bool>("IsSend")
+                        .HasColumnType("bit")
+                        .HasColumnName("IsSend")
+                        .HasColumnOrder(5);
+
+                    b.Property<byte[]>("NotificationBody")
+                        .IsRequired()
+                        .HasColumnType("image")
+                        .HasColumnName("NotificationBody")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("NotificationHeader")
+                        .IsRequired()
+                        .HasColumnType("varchar(500)")
+                        .HasColumnName("NotificationHeader")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("UserIds")
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("UserIDs")
+                        .HasColumnOrder(6);
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("BusinessBanking.Domain.Entity.User", b =>

@@ -212,5 +212,7 @@ namespace BusinessBanking.DAL.DataContexts
         public virtual DbSet<Currency> Currencies { get; set; } 
 
         public virtual DbSet<CustomerAccountName> CustomerAccountNames { get; set; }
+
+        public virtual DbSet<Notification> Notifications { get; set; }
     }
 }

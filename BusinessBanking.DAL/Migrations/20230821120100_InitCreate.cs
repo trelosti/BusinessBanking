@@ -30,6 +30,23 @@ namespace BusinessBanking.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Notifications",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NotificationHeader = table.Column<string>(type: "varchar(500)", nullable: false),
+                    NotificationBody = table.Column<byte[]>(type: "image", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    IsSend = table.Column<bool>(type: "bit", nullable: false),
+                    UserIDs = table.Column<string>(type: "varchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notifications", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -160,11 +177,21 @@ namespace BusinessBanking.DAL.Migrations
                 columns: new[] { "ID", "AccountName", "AccountNo", "AccountType", "AvailableBalance", "CloseDate", "CurrencyID", "CustomerID", "EndDate", "OpenDate" },
                 values: new object[,]
                 {
-                    { 1, "Банковские счета юридических лиц", "1240020000000001", (byte)0, 137.53m, null, "840", 1, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6120), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6106) },
-                    { 2, "Банковские счета ИП ", "1240020000000002", (byte)0, 49315.07m, null, "417", 1, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6133), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6132) },
-                    { 3, "Классический 365/факт", "1243010000000001", (byte)1, 1000000m, null, "417", 1, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6136), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6136) },
-                    { 4, "Банковские счета физ. лиц ", "1240020000000003", (byte)0, 1502.75m, null, "643", 2, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6140), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6139) },
-                    { 5, "Классический 365/факт", "1243010000000002", (byte)1, 5000000m, null, "643", 2, new DateTime(2024, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6143), new DateTime(2023, 8, 21, 14, 30, 42, 409, DateTimeKind.Local).AddTicks(6142) }
+                    { 1, "Банковские счета юридических лиц", "1240020000000001", (byte)0, 137.53m, null, "840", 1, new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9890), new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9876) },
+                    { 2, "Банковские счета ИП ", "1240020000000002", (byte)0, 49315.07m, null, "417", 1, new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9902), new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9901) },
+                    { 3, "Классический 365/факт", "1243010000000001", (byte)1, 1000000m, null, "417", 1, new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9907), new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9906) },
+                    { 4, "Банковские счета физ. лиц ", "1240020000000003", (byte)0, 1502.75m, null, "643", 2, new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9912), new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9911) },
+                    { 5, "Классический 365/факт", "1243010000000002", (byte)1, 5000000m, null, "643", 2, new DateTime(2024, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9917), new DateTime(2023, 8, 21, 18, 1, 0, 704, DateTimeKind.Local).AddTicks(9916) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AccountNames",
+                columns: new[] { "ID", "AccountName", "AccountNo", "CurrencyID", "CustomerID" },
+                values: new object[,]
+                {
+                    { 1, "Банковские счета юр. лиц", "1240020000000001", "840", 1 },
+                    { 2, "Счета ИП", "1240020000000002", "417", 1 },
+                    { 3, "Классический 365", "1243010000000002", "643", 2 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -205,6 +232,9 @@ namespace BusinessBanking.DAL.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AccountNames");
+
+            migrationBuilder.DropTable(
+                name: "Notifications");
 
             migrationBuilder.DropTable(
                 name: "CustomerAccounts");
