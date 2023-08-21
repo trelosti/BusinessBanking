@@ -27,8 +27,10 @@ namespace BusinessBanking.Services.CustomerAccounts
 
         public async Task<List<AccountListDto<BaseAccountDto>>> GetCustomerAccounts(int customerId)
         {
-            //return await _customerAccountRepository.GetAll().Where(a => a.CustomerID == customerId).ToListAsync();
             var accounts = await _customerAccountRepository.GetAll().Where(a => a.CustomerID == customerId).ToListAsync();
+
+            accounts.Where(a => a.CustomerAccountName != null).ToList().ForEach(a => a.AccountName = a.CustomerAccountName.AccountName);
+
             return _accountConverter.ConvertCustomerAccounts(accounts);
         }
     }
