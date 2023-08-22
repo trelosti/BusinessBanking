@@ -14,6 +14,7 @@ using BusinessBanking.Services.Auth;
 using BusinessBanking.Services.CustomerAccounts;
 using BusinessBanking.Services.Notifications;
 using BusinessBanking.Services.Users;
+using Castle.Core.Configuration;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -31,6 +32,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetSection("CacheSettings:ConnectionString").Value;
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -40,6 +46,8 @@ FirebaseApp.Create(new AppOptions()
 {
     Credential = GoogleCredential.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "banking-f40fb-firebase-adminsdk-q4r8a-6f2556ea6f.json")),
 });
+
+
 
 builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<IBaseRepository<CustomerAccount>, CustomerAccountRepository>();
@@ -53,6 +61,7 @@ builder.Services.AddScoped<IAccountConverter, AccountConverter>();
 builder.Services.AddScoped<ICustomerAccountService, CustomerAccountService>();
 builder.Services.AddScoped<ICustomerAccountNameService, CustomerAccountNameService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IDeviceTokenRepository, DeviceTokenRepository>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => options.TokenValidationParameters = new TokenValidationParameters

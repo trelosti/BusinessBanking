@@ -22,3 +22,15 @@ D:\C#\BusinessBanking2\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.D
 D:\C#\BusinessBanking2\BusinessBanking.Domain\obj\Debug\net7.0\refint\BusinessBanking.Domain.dll
 D:\C#\BusinessBanking2\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.Domain.pdb
 D:\C#\BusinessBanking2\BusinessBanking.Domain\obj\Debug\net7.0\ref\BusinessBanking.Domain.dll
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\bin\Debug\net7.0\BusinessBanking.Domain.deps.json
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\bin\Debug\net7.0\BusinessBanking.Domain.dll
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\bin\Debug\net7.0\BusinessBanking.Domain.pdb
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.Domain.csproj.AssemblyReference.cache
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.Domain.AssemblyInfoInputs.cache
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.Domain.AssemblyInfo.cs
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.Domain.csproj.CoreCompileInputs.cache
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.Domain.dll
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\refint\BusinessBanking.Domain.dll
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\BusinessBanking.Domain.pdb
+D:\C#\BusinessBankingTest\BusinessBanking.Domain\obj\Debug\net7.0\ref\BusinessBanking.Domain.dll

@@ -1,5 +1,6 @@
 ﻿using Azure.Core;
 using BusinessBanking.Domain.DTO;
+using BusinessBanking.Interface.Repositories;
 using BusinessBanking.Interface.Services.Notifications;
 using FirebaseAdmin.Auth;
 using FirebaseAdmin.Messaging;
@@ -13,10 +14,13 @@ namespace BusinessBanking.Controllers
     public class NotificationController : ControllerBase
     {
         private readonly INotificationService _notificationService;
+        private readonly IDeviceTokenRepository _deviceTokenRepository;
 
-        public NotificationController(INotificationService notificationService)
+
+        public NotificationController(INotificationService notificationService, IDeviceTokenRepository deviceTokenRepository)
         {
             _notificationService = notificationService;
+            _deviceTokenRepository = deviceTokenRepository;
         }
 
 
@@ -54,6 +58,14 @@ namespace BusinessBanking.Controllers
             {
                 throw new Exception("Error sending the message.");
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetToken()
+        {
+            var token = await _deviceTokenRepository.GetDeviceTokens("1, 2");
+
+            return Ok(string.Join(",", token));
         }
     }
 }
