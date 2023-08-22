@@ -5,11 +5,14 @@ using BusinessBanking.Interface.Converters;
 using BusinessBanking.Interface.Repositories;
 using BusinessBanking.Interface.Services.Auth;
 using BusinessBanking.Interface.Services.CustomerAccounts;
+using BusinessBanking.Interface.Services.Notifications;
 using BusinessBanking.Interface.Services.Users;
 using BusinessBanking.Repository.CustomerAccounts;
+using BusinessBanking.Repository.Notifications;
 using BusinessBanking.Repository.Users;
 using BusinessBanking.Services.Auth;
 using BusinessBanking.Services.CustomerAccounts;
+using BusinessBanking.Services.Notifications;
 using BusinessBanking.Services.Users;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
@@ -42,12 +45,14 @@ builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<IBaseRepository<CustomerAccount>, CustomerAccountRepository>();
 builder.Services.AddScoped<IBaseRepository<Currency>, CurrencyRepository>();
 builder.Services.AddScoped<IBaseRepository<CustomerAccountName>, CustomerAccountNameRepository>();
+builder.Services.AddScoped<IBaseRepository<Notification>, NotificationRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICurrencyService, CurrencyService>();
 builder.Services.AddScoped<IAccountConverter, AccountConverter>();
 builder.Services.AddScoped<ICustomerAccountService, CustomerAccountService>();
 builder.Services.AddScoped<ICustomerAccountNameService, CustomerAccountNameService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => options.TokenValidationParameters = new TokenValidationParameters

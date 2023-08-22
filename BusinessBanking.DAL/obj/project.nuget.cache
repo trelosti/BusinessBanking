@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R3XnEFs2WUkFN2QP/MoO+WDtz2ddTBvYEFOauleFo7VHRSwiBNd0czC179Pmzw070/oEHkjNuwCruKnzfHE2EA==",
+  "dgSpecHash": "OY2nM5srqowL0kdh/EUIKXWFIudrxjLEUiqDQcoJcGPZJ+GlhL+cyIoDNFT5y7dTZ4neg7NRnwWOlqVC2GLyJQ==",
   "success": true,
-  "projectFilePath": "D:\\C#\\BusinessBanking\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj",
+  "projectFilePath": "D:\\C#\\BusinessBanking2\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ten\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Ten\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

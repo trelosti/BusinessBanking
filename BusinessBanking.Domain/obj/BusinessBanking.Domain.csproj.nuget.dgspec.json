@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {}
+    "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {}
   },
   "projects": {
-    "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
+    "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj",
+        "projectUniqueName": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj",
         "projectName": "BusinessBanking.Domain",
-        "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj",
+        "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj",
         "packagesPath": "C:\\Users\\Ten\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\obj\\",
+        "outputPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

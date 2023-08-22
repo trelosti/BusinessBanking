@@ -1,5 +1,6 @@
 ﻿using BusinessBanking.Domain.Entity;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,7 @@ namespace BusinessBanking.Interface.Repositories
         IQueryable<T> GetAll();
 
         Task<T> Update(T entity);
+
+        Task<int> Create(T entity);
     }
 }

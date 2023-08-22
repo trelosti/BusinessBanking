@@ -1,5 +1,6 @@
 ﻿using Azure.Core;
 using BusinessBanking.Domain.DTO;
+using BusinessBanking.Interface.Services.Notifications;
 using FirebaseAdmin.Auth;
 using FirebaseAdmin.Messaging;
 using Microsoft.AspNetCore.Http;
@@ -11,9 +12,19 @@ namespace BusinessBanking.Controllers
     [ApiController]
     public class NotificationController : ControllerBase
     {
+        private readonly INotificationService _notificationService;
+
+        public NotificationController(INotificationService notificationService)
+        {
+            _notificationService = notificationService;
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> SendMessageAsync([FromBody] NotificationDto notificationDto)
         {
+            var notificationID = await _notificationService.Create(notificationDto);
+
             var message = new Message()
             {
                 Notification = new Notification
@@ -35,12 +46,12 @@ namespace BusinessBanking.Controllers
 
             if (!string.IsNullOrEmpty(result))
             {
-                // Message was sent successfully
+                await _notificationService.MarkAsSent(notificationID);
+
                 return Ok("Message sent successfully!");
             }
             else
             {
-                // There was an error sending the message
                 throw new Exception("Error sending the message.");
             }
         }

@@ -18,6 +18,11 @@ namespace BusinessBanking.Repository.CustomerAccounts
             _db = dataContext;
         }
 
+        public Task<int> Create(CustomerAccount entity)
+        {
+            return null;
+        }
+
         public IQueryable<CustomerAccount> GetAll()
         {
             return _db.CustomerAccounts;

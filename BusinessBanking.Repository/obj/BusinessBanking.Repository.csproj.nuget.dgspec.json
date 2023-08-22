@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\BusinessBanking\\BusinessBanking.Repository\\BusinessBanking.Repository.csproj": {}
+    "D:\\C#\\BusinessBanking2\\BusinessBanking.Repository\\BusinessBanking.Repository.csproj": {}
   },
   "projects": {
-    "D:\\C#\\BusinessBanking\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj": {
+    "D:\\C#\\BusinessBanking2\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\BusinessBanking\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj",
+        "projectUniqueName": "D:\\C#\\BusinessBanking2\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj",
         "projectName": "BusinessBanking.DAL",
-        "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj",
+        "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj",
         "packagesPath": "C:\\Users\\Ten\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\BusinessBanking\\BusinessBanking.DAL\\obj\\",
+        "outputPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
-                "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj"
+              "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
+                "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj"
               }
             }
           }
@@ -91,14 +91,14 @@
         }
       }
     },
-    "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
+    "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj",
+        "projectUniqueName": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj",
         "projectName": "BusinessBanking.Domain",
-        "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj",
+        "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj",
         "packagesPath": "C:\\Users\\Ten\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\obj\\",
+        "outputPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -156,14 +156,14 @@
         }
       }
     },
-    "D:\\C#\\BusinessBanking\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj": {
+    "D:\\C#\\BusinessBanking2\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\BusinessBanking\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj",
+        "projectUniqueName": "D:\\C#\\BusinessBanking2\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj",
         "projectName": "BusinessBanking.Interface",
-        "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj",
+        "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj",
         "packagesPath": "C:\\Users\\Ten\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Interface\\obj\\",
+        "outputPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Interface\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -184,8 +184,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
-                "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj"
+              "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
+                "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj"
               }
             }
           }
@@ -219,14 +219,14 @@
         }
       }
     },
-    "D:\\C#\\BusinessBanking\\BusinessBanking.Repository\\BusinessBanking.Repository.csproj": {
+    "D:\\C#\\BusinessBanking2\\BusinessBanking.Repository\\BusinessBanking.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\BusinessBanking\\BusinessBanking.Repository\\BusinessBanking.Repository.csproj",
+        "projectUniqueName": "D:\\C#\\BusinessBanking2\\BusinessBanking.Repository\\BusinessBanking.Repository.csproj",
         "projectName": "BusinessBanking.Repository",
-        "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Repository\\BusinessBanking.Repository.csproj",
+        "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Repository\\BusinessBanking.Repository.csproj",
         "packagesPath": "C:\\Users\\Ten\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Repository\\obj\\",
+        "outputPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -247,14 +247,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\C#\\BusinessBanking\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj": {
-                "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj"
+              "D:\\C#\\BusinessBanking2\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj": {
+                "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.DAL\\BusinessBanking.DAL.csproj"
               },
-              "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
-                "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj"
+              "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj": {
+                "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Domain\\BusinessBanking.Domain.csproj"
               },
-              "D:\\C#\\BusinessBanking\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj": {
-                "projectPath": "D:\\C#\\BusinessBanking\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj"
+              "D:\\C#\\BusinessBanking2\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj": {
+                "projectPath": "D:\\C#\\BusinessBanking2\\BusinessBanking.Interface\\BusinessBanking.Interface.csproj"
               }
             }
           }

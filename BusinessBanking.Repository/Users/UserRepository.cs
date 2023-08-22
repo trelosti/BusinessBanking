@@ -18,6 +18,11 @@ namespace BusinessBanking.Repository.Users
             _db = dataContext;
         }
 
+        public Task<int> Create(User entity)
+        {
+            return null;
+        }
+
         public IQueryable<User> GetAll()
         {
             return _db.Users;
