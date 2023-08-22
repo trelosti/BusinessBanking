@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FirebaseAdmin" Version="2.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
@@ -26,6 +27,12 @@
     <ProjectReference Include="..\BusinessBanking.Domain\BusinessBanking.Domain.csproj" />
     <ProjectReference Include="..\BusinessBanking.Interface\BusinessBanking.Interface.csproj" />
     <ProjectReference Include="..\BusinessBanking.Repository\BusinessBanking.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="banking-f40fb-firebase-adminsdk-q4r8a-6f2556ea6f.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -88,3 +88,11 @@ D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\CsvHelper.dll
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Castle.Core.dll
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Proxies.dll
 D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\banking-f40fb-firebase-adminsdk-q4r8a-6f2556ea6f.json
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\FirebaseAdmin.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Google.Api.Gax.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Google.Api.Gax.Rest.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Google.Apis.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Google.Apis.Auth.PlatformServices.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Google.Apis.Auth.dll
+D:\C#\BusinessBanking\BusinessBanking\bin\Debug\net7.0\Google.Apis.Core.dll

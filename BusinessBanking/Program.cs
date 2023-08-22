@@ -11,6 +11,8 @@ using BusinessBanking.Repository.Users;
 using BusinessBanking.Services.Auth;
 using BusinessBanking.Services.CustomerAccounts;
 using BusinessBanking.Services.Users;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+FirebaseApp.Create(new AppOptions()
+{
+    Credential = GoogleCredential.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "banking-f40fb-firebase-adminsdk-q4r8a-6f2556ea6f.json")),
+});
 
 builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<IBaseRepository<CustomerAccount>, CustomerAccountRepository>();
