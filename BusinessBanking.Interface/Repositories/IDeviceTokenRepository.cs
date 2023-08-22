@@ -10,5 +10,7 @@ namespace BusinessBanking.Interface.Repositories
     public interface IDeviceTokenRepository
     {
         Task<List<string>> GetDeviceTokens(string ids);
+
+        Task<List<string>> GetDeviceTokens(string[] ids);
     }
 }

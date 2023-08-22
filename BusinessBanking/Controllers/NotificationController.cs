@@ -14,58 +14,46 @@ namespace BusinessBanking.Controllers
     public class NotificationController : ControllerBase
     {
         private readonly INotificationService _notificationService;
-        private readonly IDeviceTokenRepository _deviceTokenRepository;
+        private readonly IDeviceTokenService _deviceTokenService;
 
-
-        public NotificationController(INotificationService notificationService, IDeviceTokenRepository deviceTokenRepository)
+        public NotificationController(INotificationService notificationService, IDeviceTokenService deviceTokenService)
         {
             _notificationService = notificationService;
-            _deviceTokenRepository = deviceTokenRepository;
+            _deviceTokenService = deviceTokenService;
         }
 
-
         [HttpPost]
-        public async Task<IActionResult> SendMessageAsync([FromBody] NotificationDto notificationDto)
+        public async Task<IActionResult> SendMessage([FromBody] NotificationDto notificationDto)
         {
             var notificationID = await _notificationService.Create(notificationDto);
 
-            var message = new Message()
+            var notificationData = new Notification
             {
-                Notification = new Notification
-                {
-                    Title = notificationDto.NotificationHeader,
-                    Body = notificationDto.NotificationBody,
-                },
-                Data = new Dictionary<string, string>()
-                {
-                    ["FirstName"] = "John",
-                    ["LastName"] = "Doe"
-                },
-
-                Token = notificationDto.Token
+                Title = notificationDto.NotificationHeader,
+                Body = notificationDto.NotificationBody
             };
 
-            var messaging = FirebaseMessaging.DefaultInstance;
-            var result = await messaging.SendAsync(message);
+            var ids = notificationDto.UserIds;
 
-            if (!string.IsNullOrEmpty(result))
+            var deviceTokens = await _deviceTokenService.GetDeviceTokens(ids);
+
+            foreach(var token in deviceTokens)
             {
-                await _notificationService.MarkAsSent(notificationID);
+                var message = new Message()
+                {
+                    Notification = notificationData,
 
-                return Ok("Message sent successfully!");
+                    Token = token
+                };
+
+                var messaging = FirebaseMessaging.DefaultInstance;
+
+                var result = await messaging.SendAsync(message);
             }
-            else
-            {
-                throw new Exception("Error sending the message.");
-            }
-        }
+            
+            await _notificationService.MarkAsSent(notificationID);
 
-        [HttpGet]
-        public async Task<IActionResult> GetToken()
-        {
-            var token = await _deviceTokenRepository.GetDeviceTokens("1, 2");
-
-            return Ok(string.Join(",", token));
+            return Ok("The notifications were sent successfully");
         }
     }
 }

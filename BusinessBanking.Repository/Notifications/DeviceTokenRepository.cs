@@ -21,9 +21,7 @@ namespace BusinessBanking.Repository.Notifications
 
         public async Task<List<string>> GetDeviceTokens(string ids)
         {
-            // Test record
-            await _redisCache.SetStringAsync("USER_1", "CHECK");
-            await _redisCache.SetStringAsync("USER_2", "CHECK2");
+            await _redisCache.SetStringAsync("USER_1", "fy74Eh3_lQUxLzeB3RL3Xd:APA91bFc00tHxW_P-RuxzEXcpeMQyde8jfM0-hEp6Hfos7Dh2o7YG0yIRDhfhD10b6oBtZtgjeRnOj4evdhgmA2AG3vk8SukXUTtNeraUYlCBmhS8zE26pB7jjVFHss_AlPkOHhI7K2X");
 
             var userIds = ParseStringToArray(ids);
 
@@ -40,16 +38,26 @@ namespace BusinessBanking.Repository.Notifications
             }
 
             return tokens;
+        }
 
-            //var deviceToken = await _redisCache.GetStringAsync($"USER_{id}");
+        public async Task<List<string>> GetDeviceTokens(string[] ids)
+        {
+            // Test records
+            await _redisCache.SetStringAsync("USER_1", "fy74Eh3_lQUxLzeB3RL3Xd:APA91bFc00tHxW_P-RuxzEXcpeMQyde8jfM0-hEp6Hfos7Dh2o7YG0yIRDhfhD10b6oBtZtgjeRnOj4evdhgmA2AG3vk8SukXUTtNeraUYlCBmhS8zE26pB7jjVFHss_AlPkOHhI7K2X");
 
-            //if (String.IsNullOrEmpty(deviceToken))
-            //{
-            //    return null;
+            var tokens = new List<string>();
 
-            //}
+            foreach (var userId in ids)
+            {
+                var deviceToken = await _redisCache.GetStringAsync($"USER_{userId}");
 
-            //return deviceToken;
+                if (deviceToken != null)
+                {
+                    tokens.Add(deviceToken);
+                }
+            }
+
+            return tokens;
         }
 
         private string[] ParseStringToArray(string input)

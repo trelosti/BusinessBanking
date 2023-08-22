@@ -13,7 +13,5 @@ namespace BusinessBanking.Domain.DTO
         public string NotificationBody { get; set; }
 
         public string? UserIds { get; set; }
-
-        public string Token { get; set; }
     }
 }
