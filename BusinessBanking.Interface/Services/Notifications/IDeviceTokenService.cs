@@ -9,5 +9,7 @@ namespace BusinessBanking.Interface.Services.Notifications
     public interface IDeviceTokenService
     {
         Task<List<string>> GetDeviceTokens(string ids);
+
+        Task<bool> SaveDeviceToken(int userID, string token);
     }
 }

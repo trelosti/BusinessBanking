@@ -1,9 +1,12 @@
 ﻿using BusinessBanking.Domain.DTO;
+using BusinessBanking.Domain.Exceptions;
 using BusinessBanking.Domain.Response;
 using BusinessBanking.Interface.Services.Auth;
+using BusinessBanking.Interface.Services.Notifications;
 using BusinessBanking.Interface.Services.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BusinessBanking.Controllers
 {
@@ -12,10 +15,12 @@ namespace BusinessBanking.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly IDeviceTokenService _deviceTokenService;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, IDeviceTokenService deviceTokenService)
         {
             _authService = authService;
+            _deviceTokenService = deviceTokenService;
         }
 
         [HttpPost("Login")]
@@ -28,10 +33,20 @@ namespace BusinessBanking.Controllers
                 return BadRequest("Invalid credentials");
             }
 
-            var response = new LoginResponse()
+            var response = new LoginResponse();
+
+            try
             {
-                Token = token
-            };
+                var userID = _authService.FindUserId(loginDto.Login);
+
+                _deviceTokenService.SaveDeviceToken(userID, loginDto.DeviceToken);
+            }
+            catch
+            {
+                response.Description = $"User not found for the login: {loginDto.Login}";
+            }
+
+            response.Token = token;
 
             return Ok(response);
         }

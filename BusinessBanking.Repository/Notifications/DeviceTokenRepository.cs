@@ -21,7 +21,7 @@ namespace BusinessBanking.Repository.Notifications
 
         public async Task<List<string>> GetDeviceTokens(string ids)
         {
-            await _redisCache.SetStringAsync("USER_1", "fy74Eh3_lQUxLzeB3RL3Xd:APA91bFc00tHxW_P-RuxzEXcpeMQyde8jfM0-hEp6Hfos7Dh2o7YG0yIRDhfhD10b6oBtZtgjeRnOj4evdhgmA2AG3vk8SukXUTtNeraUYlCBmhS8zE26pB7jjVFHss_AlPkOHhI7K2X");
+            //await _redisCache.SetStringAsync("USER_1", "fy74Eh3_lQUxLzeB3RL3Xd:APA91bFc00tHxW_P-RuxzEXcpeMQyde8jfM0-hEp6Hfos7Dh2o7YG0yIRDhfhD10b6oBtZtgjeRnOj4evdhgmA2AG3vk8SukXUTtNeraUYlCBmhS8zE26pB7jjVFHss_AlPkOHhI7K2X");
 
             var userIds = ParseStringToArray(ids);
 
@@ -43,7 +43,7 @@ namespace BusinessBanking.Repository.Notifications
         public async Task<List<string>> GetDeviceTokens(string[] ids)
         {
             // Test records
-            await _redisCache.SetStringAsync("USER_1", "fy74Eh3_lQUxLzeB3RL3Xd:APA91bFc00tHxW_P-RuxzEXcpeMQyde8jfM0-hEp6Hfos7Dh2o7YG0yIRDhfhD10b6oBtZtgjeRnOj4evdhgmA2AG3vk8SukXUTtNeraUYlCBmhS8zE26pB7jjVFHss_AlPkOHhI7K2X");
+            //await _redisCache.SetStringAsync("USER_1", "fy74Eh3_lQUxLzeB3RL3Xd:APA91bFc00tHxW_P-RuxzEXcpeMQyde8jfM0-hEp6Hfos7Dh2o7YG0yIRDhfhD10b6oBtZtgjeRnOj4evdhgmA2AG3vk8SukXUTtNeraUYlCBmhS8zE26pB7jjVFHss_AlPkOHhI7K2X");
 
             var tokens = new List<string>();
 
@@ -58,6 +58,19 @@ namespace BusinessBanking.Repository.Notifications
             }
 
             return tokens;
+        }
+
+        public async Task<bool> SaveDeviceToken(int userID, string token)
+        {
+            try
+            {
+                await _redisCache.SetStringAsync($"USER_{userID}", token);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private string[] ParseStringToArray(string input)

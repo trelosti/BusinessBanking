@@ -17,5 +17,7 @@ namespace BusinessBanking.Domain.DTO
         [Required(ErrorMessage = "Enter password")]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
+        public string? DeviceToken { get; set; }
     }
 }

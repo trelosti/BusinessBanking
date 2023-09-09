@@ -1,4 +1,5 @@
 ﻿using BusinessBanking.Domain.Entity;
+using BusinessBanking.Domain.Exceptions;
 using BusinessBanking.Interface.Services.Auth;
 using BusinessBanking.Interface.Services.Users;
 using Microsoft.Extensions.Configuration;
@@ -70,6 +71,11 @@ namespace BusinessBanking.Services.Auth
 
             var encrypted = Encrypt(password);
             return user.Password == encrypted;
+        }
+
+        public int FindUserId(string login)
+        {
+            return _userService.GetUserByLogin(login).Result.ID;
         }
 
         private string Encrypt(string password)

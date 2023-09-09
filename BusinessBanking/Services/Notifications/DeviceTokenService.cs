@@ -23,10 +23,15 @@ namespace BusinessBanking.Services.Notifications
             }
             else
             {
-                var userIds = _userRepository.GetAll().Select(u => u.ID.ToString()).ToArray();
+                var customerIds = _userRepository.GetAll().Select(u => u.CustomerID.ToString()).ToArray();
 
-                return _deviceTokenRepository.GetDeviceTokens(userIds);
+                return _deviceTokenRepository.GetDeviceTokens(customerIds);
             }
+        }
+
+        public async Task<bool> SaveDeviceToken(int userID, string token)
+        {
+            return await _deviceTokenRepository.SaveDeviceToken(userID, token);
         }
     }
 }

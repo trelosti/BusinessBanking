@@ -12,5 +12,7 @@ namespace BusinessBanking.Interface.Repositories
         Task<List<string>> GetDeviceTokens(string ids);
 
         Task<List<string>> GetDeviceTokens(string[] ids);
+
+        Task<bool> SaveDeviceToken(int userID, string token);
     }
 }
